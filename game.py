@@ -1,5 +1,9 @@
 '''
 BlackJack main logic file
 '''
+from deck import Deck
 
-#just to try git
+my_deck = Deck()
+
+if __name__== "__main__":
+	print(my_deck)
