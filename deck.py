@@ -16,13 +16,15 @@ class Deck(object):
         
         for suit in self.suits:
             for rank in self.ranks:
-                self.deck.append((suit,rank))
+                self.deck.append((rank,suit))
         
         shuffle(self.deck)
 
     def __str__(self):
-       # return ("The deck is:" + format(self.deck))
-        pass
+        cards_in_deck = ""
+        for card in self.deck:
+            cards_in_deck += str(card) + '\n'
+        return cards_in_deck
 
     def mix(self):
         shuffle(self.deck)
