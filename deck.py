@@ -28,3 +28,9 @@ class Deck(object):
 
     def mix(self):
         shuffle(self.deck)
+
+    def get_card(self,quantity = 1):
+        cards = []
+        for i in range(0,quantity):
+            cards.append(( self.deck.pop()))
+        return cards
