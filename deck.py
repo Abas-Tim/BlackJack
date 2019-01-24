@@ -18,15 +18,15 @@ class Deck(object):
         self.deck = []
         
         for suit in self.suits:
-            for rank in self.ranks_values.keys():
-                new_card = card.Card(rank,suit)
+            for rank, value in self.ranks_values.items():
+                new_card = card.Card(rank,suit,value)
                 self.deck.append(new_card)
         shuffle(self.deck)
 
     def __str__(self):
         deck_cards_str = ""
         for card in self.deck:
-            deck_cards_str += f'{card.rank}' + ' ' + f'{card.suit}' + '\n'
+            deck_cards_str += f'{card.rank}' + ' ' + f'{card.suit}' + ',' + f'{card.value}'+ '\n'
         return deck_cards_str
 
     def mix(self):

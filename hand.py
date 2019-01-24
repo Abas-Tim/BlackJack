@@ -9,7 +9,10 @@ class Hand(object):
 		self.value = 0
 		self.aces = 0
 
-	def add_a_card(self,card):
+	def add_card(self,card):
+		self.value += card.value
+		if card.rank == "ace":
+			self.aces += 1
 		self.cards.append((card))
 		#rank = card.rank
 		#suit = card.suit
