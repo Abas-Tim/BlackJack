@@ -8,6 +8,8 @@ class Chips(object):
 
 	def win_bet(self):
 		self.total += self.bet
+		self.bet = 0
 
 	def lose_bet(self):
 		self.total -= self.bet
+		self.bet = 0

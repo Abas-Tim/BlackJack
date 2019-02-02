@@ -1,8 +1,13 @@
 '''
 Methods of displaying a cards
 '''
+'''
+This module is a terrible mess, I know. 
+Just didn't wanted to care more for an interface of console card game.
+'''
 
 import hand
+import os
 
 suits = {'hearts':'♥', 'diamonds':'♦', 'clubs':'♣', 'spades':'♠'}
 
@@ -180,3 +185,8 @@ def show_all(player,dealer):
 	image += ("---------" +" ") *len(player.cards) 
 
 	print(image)
+
+
+def clear_screen():
+	clear = lambda: os.system('cls')
+	clear()
