@@ -16,7 +16,7 @@ def take_bet(players_chips):
 			print("Please use only integer number")
 			continue
 
-		if bet <= players_chips.total:
+		if bet < players_chips.total:
 			players_chips.bet = bet
 			break
 		else:

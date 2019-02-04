@@ -3,7 +3,7 @@ Methods of displaying a cards
 '''
 '''
 This module is a terrible mess, I know. 
-Just didn't wanted to care more for an interface of console card game.
+Just didn't wanted to care more about interface of console card game.
 '''
 
 import hand

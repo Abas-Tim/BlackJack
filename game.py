@@ -8,9 +8,10 @@ from chips import Chips
 import actions
 import show
 
-show.clear_screen()
+
 players_chips = Chips(200)
 while True:
+	show.clear_screen()
 	playing_deck = Deck()
 	dealer = Hand()
 	player = Hand()
@@ -27,23 +28,47 @@ while True:
 	dealer_playing = True
 	while playing:
 		show.clear_screen()
+		#print(f"Your chips <<{players_chips.total}>>")
 		print(f"Your bet <<{players_chips.bet}>>")
 		show.show_some(player, dealer)
-		print(playing)
 		playing = actions.hit_or_stand(playing_deck, player)
+
 		if actions.player_busts(player.value):
 			dealer_playing = False
 			show.clear_screen()
 			show.show_some(player, dealer)
 			players_chips.lose_bet()
-			print(f"You lost. You have {players_chips.total} left.")
+			print(f"You lost. You have {players_chips.total} left.")			
 			break
 
 	if dealer_playing:
+		show.clear_screen()
+		#print(f"Your chips <<{players_chips.total}>>")
+		print(f"Your bet <<{players_chips.bet}>>")
+		show.show_all(player, dealer)
 		while dealer.value <= 17:
 			actions.hit(playing_deck, dealer)
+			show.clear_screen()
+			#print(f"Your chips <<{players_chips.total}>>")
+			print(f"Your bet <<{players_chips.bet}>>")
+			show.show_all(player, dealer)
+			
+	
+	if actions.dealer_busts(dealer.value):
+		print(f"Congratulations! You won {players_chips.bet}!")
+		players_chips.win_bet()
+	elif actions.player_wins(player.value, dealer.value):
+		print(f"Congratulations! You won {players_chips.bet}!")
+		players_chips.win_bet()
+	elif actions.dealer_wins(player.value, dealer.value):
+		players_chips.lose_bet()
+		print(f"You lost. You have {players_chips.total} left.")
+	elif actions.push(player.value, dealer.value):
+		print("Looks like it is a draw!")
+
+
 	
 	if input("Enter 'y' or 'yes' if you want to play one more time: ").lower() in ('y', 'yes'):
-		break
-	else:
 		continue
+	else:
+		break
