@@ -1,15 +1,20 @@
-#Class for player's chips
+"""Class for player's chips"""
 
-class Chips(object):
 
-	def __init__(self, amount = 100):
-		self.total = amount
-		self.bet = 0
+class Chips:
+    """Class for chips of a player"""
 
-	def win_bet(self):
-		self.total += self.bet
-		self.bet = 0
 
-	def lose_bet(self):
-		self.total -= self.bet
-		self.bet = 0
+    def __init__(self, amount=100):
+        self.total = amount
+        self.bet = 0
+
+    def win_bet(self):
+        """Method for adding chips in win scenario"""
+        self.total += self.bet
+        self.bet = 0
+
+    def lose_bet(self):
+        """Method for deducting chips from player in losing scenario"""
+        self.total -= self.bet
+        self.bet = 0
